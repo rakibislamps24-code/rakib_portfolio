@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Clash+Display:wght@400;500;600;700&family=Syncopate:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00d4ff;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0099ff;
+}
+
+/* Smooth text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Button base styles */
+button {
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Input styles */
+input,
+textarea {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Heading styles */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', sans-serif;
+}
+
+/* Gradient text utility */
+.bg-gradient-text {
+  @apply bg-gradient-to-r from-neon-cyan to-neon-blue bg-clip-text text-transparent;
+}
+
+.projects-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+ gap: 20px;
+}
+
+.project-card {
+ background: white;
+ padding: 20px;
+ border-radius: 10px;
+ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.contact-form {
+ display: flex;
+ flex-direction: column;
+ gap: 12px;
+}
+
+.contact-form input,
+.contact-form textarea {
+ padding: 12px;
+ font-size: 16px;
+}
+
+.contact-form button {
+ padding: 12px;
+ border: none;
+ background: #222;
+ color: white;
+ cursor: pointer;
+}
