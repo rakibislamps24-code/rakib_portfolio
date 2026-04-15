@@ -46,6 +46,12 @@ app.post("/contact", (req, res) => {
  res.json({ message: "Message received successfully" });
 });
 
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+  process.exit(1);
+});
+
+console.log('Starting server; PORT =', PORT);
 app.listen(PORT, () => {
- console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
