@@ -90,11 +90,11 @@ export default function Hero() {
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="relative w-64 h-64 md:w-72 md:h-72"
+              className="relative w-48 h-48 md:w-56 md:h-56"
             >
               {/* Animated gradient border */}
               <motion.div
-                className={`absolute inset-0 rounded-3xl ${
+                className={`absolute inset-0 rounded-full ${
                   isDark
                     ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400'
                     : 'bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500'
@@ -104,7 +104,7 @@ export default function Hero() {
                 }}
                 transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
               >
-                <div className={`w-full h-full rounded-3xl overflow-hidden flex items-center justify-center ${
+                <div className={`w-full h-full rounded-full overflow-hidden flex items-center justify-center ${
                   isDark ? 'bg-gray-900' : 'bg-white'
                 }`}>
                   <img
@@ -117,7 +117,7 @@ export default function Hero() {
                     }}
                   />
                   {/* Fallback Avatar */}
-                  <div className={`w-full h-full hidden flex-col items-center justify-center text-6xl font-bold ${
+                  <div className={`w-full h-full hidden flex-col items-center justify-center text-5xl font-bold ${
                     isDark
                       ? 'bg-gradient-to-br from-cyan-500 to-blue-600'
                       : 'bg-gradient-to-br from-cyan-400 to-blue-500'
@@ -131,13 +131,13 @@ export default function Hero() {
               <motion.div
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className={`absolute -bottom-4 -right-4 px-6 py-3 rounded-full font-bold text-lg ${
+                className={`absolute -bottom-2 -right-2 px-3 py-1.5 rounded-full font-bold text-sm ${
                   isDark
                     ? 'bg-cyan-500 text-gray-950'
                     : 'bg-cyan-600 text-white'
                 } shadow-lg`}
               >
-                ✨ Full-Stack
+                ✨
               </motion.div>
             </motion.div>
           </motion.div>
