@@ -79,104 +79,170 @@ export default function Hero() {
         />
       </div>
 
-      <div className="text-center z-10 px-4 max-w-6xl">
-        <motion.div
-          ref={titleRef}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="mb-6"
-        >
-          <motion.h1
-            className={`text-7xl md:text-8xl lg:text-9xl font-bold leading-tight mb-4 ${
-              isDark
-                ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent'
-                : 'bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent'
-            }`}
-            animate={{
-              backgroundPosition: ["0%", "100%"],
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-          >
-            Rakib
-          </motion.h1>
+      <div className="z-10 px-4 max-w-6xl w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Photo Section */}
           <motion.div
-            className={`h-1.5 w-48 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-blue-500`}
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.5 }}
-          />
-        </motion.div>
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex justify-center md:justify-end"
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="relative w-64 h-64 md:w-72 md:h-72"
+            >
+              {/* Animated gradient border */}
+              <motion.div
+                className={`absolute inset-0 rounded-3xl ${
+                  isDark
+                    ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400'
+                    : 'bg-gradient-to-r from-cyan-500 via-blue-600 to-cyan-500'
+                } p-1`}
+                animate={{
+                  backgroundPosition: ["0%", "100%"],
+                }}
+                transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
+              >
+                <div className={`w-full h-full rounded-3xl overflow-hidden flex items-center justify-center ${
+                  isDark ? 'bg-gray-900' : 'bg-white'
+                }`}>
+                  <img
+                    src="/rakib.jpg"
+                    alt="Rakib - Full-Stack Developer"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextElementSibling.style.display = 'flex';
+                    }}
+                  />
+                  {/* Fallback Avatar */}
+                  <div className={`w-full h-full hidden flex-col items-center justify-center text-6xl font-bold ${
+                    isDark
+                      ? 'bg-gradient-to-br from-cyan-500 to-blue-600'
+                      : 'bg-gradient-to-br from-cyan-400 to-blue-500'
+                  }`}>
+                    <span>👨‍💻</span>
+                  </div>
+                </div>
+              </motion.div>
 
-        <motion.div
-          ref={subtitleRef}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          className="mb-8 mt-8 space-y-2"
-        >
-          <motion.p
-            className={`text-2xl md:text-4xl font-bold ${
-              isDark ? 'text-white' : 'text-gray-900'
-            }`}
-            variants={itemVariants}
-          >
-            Full-Stack Software Engineer
-          </motion.p>
-          <motion.p
-            className={`text-lg md:text-2xl font-light ${
-              isDark ? 'text-gray-400' : 'text-gray-700'
-            }`}
-            variants={itemVariants}
-          >
-            3rd Year CSE Student @ East West University
-          </motion.p>
-          <motion.p
-            className={`text-base md:text-lg font-light ${
-              isDark ? 'text-gray-500' : 'text-gray-600'
-            }`}
-            variants={itemVariants}
-          >
-            160+ DSA Problems | Web Apps | ML Projects | Open Source
-          </motion.p>
-        </motion.div>
+              {/* Floating badge */}
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 3, repeat: Infinity }}
+                className={`absolute -bottom-4 -right-4 px-6 py-3 rounded-full font-bold text-lg ${
+                  isDark
+                    ? 'bg-cyan-500 text-gray-950'
+                    : 'bg-cyan-600 text-white'
+                } shadow-lg`}
+              >
+                ✨ Full-Stack
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
-        <motion.div
-          ref={ctaRef}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="flex flex-wrap gap-6 justify-center mt-12"
-        >
-          <motion.a
-            href="#projects"
-            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(34, 197, 255, 0.5)" }}
-            whileTap={{ scale: 0.95 }}
-            className={`px-8 py-4 font-bold rounded-xl transition-all duration-300 ${
-              isDark
-                ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-950 hover:shadow-lg'
-                : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg'
-            }`}
-          >
-            View My Work
-          </motion.a>
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className={`px-8 py-4 border-2 font-bold rounded-xl transition-all duration-300 ${
-              isDark
-                ? 'border-cyan-400 text-cyan-400 hover:bg-cyan-400/10'
-                : 'border-cyan-500 text-cyan-600 hover:bg-cyan-500/10'
-            }`}
-          >
-            Get In Touch
-          </motion.a>
-        </motion.div>
+          {/* Text Section */}
+          <div>
+            <motion.div
+              ref={titleRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="mb-6"
+            >
+              <motion.h1
+                className={`text-5xl md:text-6xl font-bold leading-tight mb-4 ${
+                  isDark
+                    ? 'bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent'
+                    : 'bg-gradient-to-r from-cyan-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent'
+                }`}
+                animate={{
+                  backgroundPosition: ["0%", "100%"],
+                }}
+                transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
+              >
+                Rakib
+              </motion.h1>
+              <motion.div
+                className={`h-1.5 w-32 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500`}
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+              />
+            </motion.div>
 
-        {/* Stats */}
+            <motion.div
+              ref={subtitleRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="mb-8 mt-8 space-y-2"
+            >
+              <motion.p
+                className={`text-2xl md:text-3xl font-bold ${
+                  isDark ? 'text-white' : 'text-gray-900'
+                }`}
+                variants={itemVariants}
+              >
+                Full-Stack Software Engineer
+              </motion.p>
+              <motion.p
+                className={`text-lg font-light ${
+                  isDark ? 'text-gray-400' : 'text-gray-700'
+                }`}
+                variants={itemVariants}
+              >
+                3rd Year CSE Student @ East West University
+              </motion.p>
+              <motion.p
+                className={`text-base font-light ${
+                  isDark ? 'text-gray-500' : 'text-gray-600'
+                }`}
+                variants={itemVariants}
+              >
+                160+ DSA Problems | Web Apps | ML Projects | Open Source
+              </motion.p>
+            </motion.div>
+
+            <motion.div
+              ref={ctaRef}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="flex flex-wrap gap-6 mt-12"
+            >
+              <motion.a
+                href="#projects"
+                whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(34, 197, 255, 0.5)" }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-8 py-4 font-bold rounded-xl transition-all duration-300 ${
+                  isDark
+                    ? 'bg-gradient-to-r from-cyan-400 to-blue-500 text-gray-950 hover:shadow-lg'
+                    : 'bg-gradient-to-r from-cyan-500 to-blue-600 text-white hover:shadow-lg'
+                }`}
+              >
+                View My Work
+              </motion.a>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`px-8 py-4 border-2 font-bold rounded-xl transition-all duration-300 ${
+                  isDark
+                    ? 'border-cyan-400 text-cyan-400 hover:bg-cyan-400/10'
+                    : 'border-cyan-500 text-cyan-600 hover:bg-cyan-500/10'
+                }`}
+              >
+                Get In Touch
+              </motion.a>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Stats - Below the grid */}
         <motion.div
-          className="grid grid-cols-3 gap-8 mt-16 md:mt-20 max-w-2xl mx-auto"
+          className="grid grid-cols-3 gap-8 mt-20 md:mt-24"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
